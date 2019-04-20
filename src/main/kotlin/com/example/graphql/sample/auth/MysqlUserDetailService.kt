@@ -4,10 +4,10 @@ import com.example.graphql.sample.model.User
 import com.example.graphql.sample.repository.UserRepository
 import org.springframework.security.core.userdetails.ReactiveUserDetailsPasswordService
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService
+import org.springframework.security.core.userdetails.User as SpringUser
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
-import org.springframework.security.core.userdetails.User as SpringUser
 
 @Service
 class MysqlUserDetailService(val userRepository: UserRepository) : ReactiveUserDetailsService,

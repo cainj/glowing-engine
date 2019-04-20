@@ -32,12 +32,11 @@ class QueryHandler(private val graphql: GraphQL, val userRepository: UserReposit
                 .map { executionResult -> executionResult.toGraphQLResponse() }
         }
 
-    fun saveUser(req: ServerRequest): Mono<ServerResponse> = req.bodyToMono(User::class.java).flatMap {user ->
+    fun saveUser(req: ServerRequest): Mono<ServerResponse> = req.bodyToMono(User::class.java).flatMap { user ->
         user.password = encoder.encode(user.password)
-        if(user.createdTime == null) user.createdTime = Date()
+        if (user.createdTime == null) user.createdTime = Date()
         ServerResponse.ok()
             .contentType(APPLICATION_JSON)
             .syncBody(userRepository.save(user))
     }
-
 }

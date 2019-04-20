@@ -64,7 +64,6 @@ class AuthConfig {
         return AuthenticationWebFilter(userDetailService).also {
             it.setAuthenticationSuccessHandler(BasicAuthenticationSuccessHandler(jwtTokenService!!))
         }
-
     }
 
     /**

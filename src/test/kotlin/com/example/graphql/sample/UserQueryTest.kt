@@ -1,5 +1,6 @@
 package com.example.graphql.sample
 
+import java.nio.charset.StandardCharsets.UTF_8
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -12,7 +13,6 @@ import org.springframework.util.Base64Utils
 import org.springframework.web.reactive.function.client.WebClient
 import org.springframework.web.reactive.function.client.bodyToMono
 import reactor.test.test
-import java.nio.charset.StandardCharsets.UTF_8
 
 @ExtendWith(SpringExtension::class)
 @SpringBootTest(webEnvironment = RANDOM_PORT)
