@@ -1,0 +1,14 @@
+configurations{
+    detekt
+}
+
+dependencies{
+    detekt group: 'io.gitlab.arturbosch.detekt', name: 'detekt-formatting', version: "$detekt_version"
+    detekt group: 'io.gitlab.arturbosch.detekt', name: 'detekt-cli', version: "$detekt_version"
+}
+
+detekt {
+    input = files("src")
+    filters = ".*/resources/.*,.*/build/.*"
+    config = files("detekt.yml")
+}

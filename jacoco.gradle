@@ -1,0 +1,38 @@
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.8.3"
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.80
+            }
+        }
+        rule {
+            element = "CLASS"
+            limit {
+                counter = "BRANCH"
+                minimum = 0.25
+            }
+        }
+    }
+}
+
+jacocoTestReport {
+    reports {
+        html.enabled = true
+        xml.enabled = true
+        csv.enabled = false
+
+        xml.destination file("${buildDir}/jacoco/jacoco.xml")
+        html.destination file("${buildDir}/jacoco/html")
+    }
+}
+
+jacocoTestCoverageVerification.dependsOn(assemble)
+jacocoTestReport.dependsOn(assemble)
+
+test.finalizedBy(jacocoTestCoverageVerification, jacocoTestReport)

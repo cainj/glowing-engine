@@ -1,0 +1,21 @@
+ibotta:
+  security-token-service:
+    disabled: true
+
+logging:
+  level:
+    root: info
+
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    properties:
+      hibernate:
+      formate-sql: true
+    datasource:
+      initialize: true
+      url: jdbc:h2:mem:test
+      driverClassName: org.h2.Driver
+      username: sa
+      password:
